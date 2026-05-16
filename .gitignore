@@ -3,5 +3,8 @@ node_modules/
 dist/
 .env
 .env.local
+frontend/.env
+frontend/.env.local
+backend/.env
 uploads/
 *.log

@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { submitProfile, uploadSalarySlip, getMyProfile } from '../controllers/profileController';
+import { protect, authorize } from '../middleware/auth';
+import { upload } from '../config/multer';
+const router = Router();
+router.use(protect);
+router.get('/me', authorize('borrower'), getMyProfile);
+router.post('/submit', authorize('borrower'), submitProfile);
+router.post('/upload-salary-slip', authorize('borrower'), upload.single('salarySlip'), uploadSalarySlip);
+export default router;
